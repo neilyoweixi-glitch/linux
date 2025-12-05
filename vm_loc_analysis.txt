@@ -1,0 +1,137 @@
+================================================================================
+LINUX VIRTUAL MEMORY MANAGEMENT - LINES OF CODE ANALYSIS
+================================================================================
+
+This analysis calculates the total lines of code for Linux virtual memory 
+management at file granularity, including both .c and .h files.
+
+================================================================================
+SUMMARY STATISTICS
+================================================================================
+
+MM Directory (mm/):
+  - Code Lines:      134,001
+  - Blank Lines:     29,399
+  - Comment Lines:   47,948
+  - Total Files:     197 (160 *.c, 26 *.h, plus other files)
+
+VM-Related Headers (include/linux/):
+  - Code Lines:        7,691
+  - Blank Lines:       1,612
+  - Comment Lines:     3,404
+  - Total Files:      18 header files
+
+================================================================================
+TOTAL LINES OF CODE FOR VM MANAGEMENT
+================================================================================
+
+Total Code Lines:     141,692
+Total Blank Lines:     31,011
+Total Comment Lines:  51,352
+Grand Total:         224,055 lines
+
+================================================================================
+TOP 20 LARGEST FILES IN MM DIRECTORY
+================================================================================
+
+File                              Code Lines    Blank    Comments
+------------------------------------------------------------------------
+mm/slub.c                              6,521    1,632     1,923
+mm/hugetlb.c                           4,883    1,055     2,045
+mm/vmscan.c                            4,723    1,334     1,862
+mm/memory.c                            4,594      795     1,919
+mm/page_alloc.c                        4,521    1,044     2,068
+mm/shmem.c                             4,376      736       852
+mm/memcontrol.c                        3,619      870     1,114
+mm/huge_memory.c                       3,282      625       768
+mm/vmalloc.c                           3,194      800     1,325
+mm/swapfile.c                          2,802      533       785
+mm/filemap.c                           2,647      520     1,510
+mm/mempolicy.c                         2,607      489       774
+mm/ksm.c                               2,483      464       937
+mm/damon/sysfs-schemes.c               2,243      456        82
+mm/khugepaged.c                        1,961      342       545
+mm/damon/core.c                        1,955      377       560
+mm/gup.c                               1,940      411     1,217
+mm/compaction.c                        1,902      497       935
+mm/percpu.c                            1,885      442     1,048
+mm/vma.c                               1,810      435       959
+
+================================================================================
+VM-RELATED HEADER FILES (include/linux/)
+================================================================================
+
+File                              Code Lines    Blank    Comments
+------------------------------------------------------------------------
+include/linux/mm.h                      2,710      571     1,051
+include/linux/mmzone.h                  1,272      286       756
+include/linux/mm_types.h                  954      189       710
+include/linux/vmstat.h                    471      104        40
+include/linux/mm_inline.h                 381      105       170
+include/linux/mmu_notifier.h              372       68       224
+include/linux/sched/mm.h                  286       55       231
+include/linux/mmap_lock.h                 282       73        57
+include/linux/vmalloc.h                   239       60        32
+include/linux/vm_event_item.h             191        9         1
+include/linux/mmdebug.h                   143        9         1
+include/linux/mman.h                      127       25        70
+include/linux/mmiotrace.h                   82       19        11
+include/linux/vmcore_info.h                 63       10         7
+include/linux/mm_types_task.h               47       14        30
+include/linux/vmpressure.h                  40        8         4
+include/linux/mmu_context.h                 30        7         9
+include/linux/mm_api.h                       1        0         0
+
+================================================================================
+FILES INCLUDED IN ANALYSIS
+================================================================================
+
+MM Directory Files:
+  All .c and .h files in /workspace/mm/ directory and subdirectories:
+  - Core VM management (memory.c, mmap.c, vma.c, etc.)
+  - Page allocation (page_alloc.c, page_io.c, etc.)
+  - Memory mapping (mmap.c, mremap.c, mprotect.c, etc.)
+  - Swap management (swap.c, swapfile.c, swap_state.c, etc.)
+  - Huge pages (hugetlb.c, huge_memory.c, etc.)
+  - Memory compaction and migration (compaction.c, migrate.c, etc.)
+  - Memory control groups (memcontrol.c, memcontrol-v1.c)
+  - Slab allocators (slub.c, slab_common.c)
+  - VMA management (vma.c, vma_init.c, vma_exec.c)
+  - KASAN, KFENCE, KMSAN debugging tools
+  - DAMON memory monitoring
+  - And many more VM-related subsystems
+
+VM Headers:
+  Core VM-related headers from include/linux/:
+  - mm.h, mm_types.h, mm_types_task.h
+  - mmzone.h, mm_api.h, mmdebug.h
+  - mm_inline.h, mmap_lock.h, mman.h
+  - mmu_context.h, mmu_notifier.h
+  - vmalloc.h, vmstat.h, vmpressure.h
+  - vm_event_item.h, vmcore_info.h
+  - sched/mm.h, mmiotrace.h
+
+================================================================================
+ANALYSIS METHODOLOGY
+================================================================================
+
+Tool Used: cloc (Count Lines of Code) v1.98
+Command: cloc mm/ --by-file
+         cloc [header files] --by-file
+
+The analysis includes:
+- All C source files (*.c) in mm/ directory
+- All header files (*.h) in mm/ directory  
+- Core VM-related header files in include/linux/
+- Subdirectories: kasan/, kfence/, kmsan/, damon/
+
+Excluded:
+- Architecture-specific VM code (arch/*/mm/)
+- Test files in tools/testing/
+- Documentation files
+- Makefiles (except where counted by cloc)
+
+================================================================================
+Generated: $(date)
+Tool: cloc v1.98
+================================================================================
